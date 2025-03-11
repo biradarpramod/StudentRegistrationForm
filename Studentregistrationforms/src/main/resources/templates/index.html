@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body onload="getStudents();">
+    
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            <div class="input-box">
+                <label for="rollno">Roll No</label>
+                <input type="text" id="rollno" name="rollno" placeholder="Enter Your Roll No" class="form-control">
+                <div id="rollnoError" class="error text-danger"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" class="form-control">
+                <div id="nameError" class="error text-danger"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="standard">Standard</label>
+                <input type="text" id="standard" name="standard" placeholder="Enter Your Standard" class="form-control">
+                <div id="standardError" class="error text-danger"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="division">Division</label>
+                <input type="text" id="division" name="division" placeholder="Enter Your Division" class="form-control">
+                <div id="divisionError" class="error text-danger"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter Your Address" class="form-control">
+                <div id="addressError" class="error text-danger"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="mobileno">Mobile No</label>
+                <input type="text" id="mobileno" name="mobileno" placeholder="Enter Your Mobile No" class="form-control">
+                <div id="mobilenoError" class="error text-danger"></div>
+            </div>
+
+            <div id="btn">
+                <button type="button" id="submitBtn" class="btn btn-primary mt-3">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <h1>Registered Students</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Standard</th>
+                    <th>Division</th>
+                    <th>Address</th>
+                    <th>Mobile No</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Dynamically populated rows will go here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserId">
+                        <div class="input-box">
+                            <label for="editRollno">Rollno</label>
+                            <input type="text" id="editRollno" required />
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="editName">Name</label>
+                            <input type="text" id="editName" required />
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="editStandard">Standard</label>
+                            <input type="standard" id="editStandard" required />
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="editDivision">Division</label>
+                            <input type="text" id="editDivision" required />
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="editAddress">Address</label>
+                            <textarea id="editAddress" required></textarea>
+                        </div>
+                        
+                        <div class="input-box">
+						    <label for="editMobileno">Mobile No</label>
+						    <input type="text" id="editMobileno" required />
+						</div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateStudent();">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
